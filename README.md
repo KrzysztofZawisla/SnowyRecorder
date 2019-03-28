@@ -28,7 +28,7 @@ When you will give as argument def, default and . program will setup default val
 # Download, Used Modules, Author and other informations
 Polish version download -> https://github.com/KrzysztofZawisla/SnowyRecorder/releases/
 
-Author: Krzysztof Zawisła.  
+Author: Krzysztof Zawisła, Jakub "Logika" Pawelec.
 Used NPM's modules:  
   - electron-packager  
   - electron  
