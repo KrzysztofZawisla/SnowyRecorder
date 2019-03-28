@@ -1,7 +1,7 @@
 # SnowyRecorder
 
 ## Important
-App wont work without installed SOX. You need to install SOX and add that to system $PATH variable. Require SOX version 14.4.1 (not higher).
+App won't work without installed SOX. You need to install SOX and add that to system $PATH variable. Require SOX version 14.4.1 (not higher).
 
 ## Description
 SnowyRecorder is a simple widget which allows you to record your voice.
