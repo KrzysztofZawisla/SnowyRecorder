@@ -1,0 +1,44 @@
+@import "variables.scss";
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  color: #111;
+  background: $white;
+  font-family: $font-family;
+  user-select: none;
+  #dragbar {
+    height: 20px;
+    background: $white-darken-color;
+    -webkit-app-region: drag;
+    padding: 0 5px;
+    color: #111;
+    font-size: 11px;
+    line-height: 20px;
+  }
+  #record {
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    line-height: 250px;
+    font-size: 92px;
+  }
+  #path {
+    background: $white-darken-color;
+    form {
+      margin: 0 auto;
+      width: 80%;
+      text-align: center;
+      input {
+      }
+    }
+  }
+}
