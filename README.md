@@ -15,10 +15,10 @@ On Mac:
   - Command+Shift+R - App restart
   
 ## Command line arguments
-snowyrecorder.exe frequency "File output folder"
-Exmaples:
-snowyrecorder.exe 16000 C:\Users\Krzysztof\Videos
-snowyrecorder.exe def C:\Users\Krzysztof\Videos
+snowyrecorder.exe frequency "File output folder"  
+Exmaples:  
+snowyrecorder.exe 16000 C:\Users\Krzysztof\Videos  
+snowyrecorder.exe def C:\Users\Krzysztof\Videos  
 
 When you will give as argument def, default and . program will setup default values.
 
