@@ -2,7 +2,7 @@ const electron = require("electron");
 const url = require("url");
 const path = require("path");
 
-const { app, BrowserWindow, Menu, shell, globalShortcut, Tray } = electron;
+const { app, BrowserWindow, Menu, shell, globalShortcut, Tray, nativeImage } = electron;
 
 const windows = {
   mainWindow: null
@@ -31,8 +31,9 @@ function hardReset() {
 }
 
 app.on("ready", () => {
+  const myTrayIconPath =  path.join(__dirname, "Img/icon.png");
   Menu.setApplicationMenu(null);
-  tray = new Tray("Img/icon.ico");
+  tray = new Tray(nativeImage.createFromPath(myTrayIconPath));
   tray.setToolTip("Snowy Recorder");
   tray.setContextMenu(trayContextMenu);
   tray.on("click", () => {
