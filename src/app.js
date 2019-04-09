@@ -2,11 +2,28 @@ const electron = require("electron");
 const url = require("url");
 const path = require("path");
 
-const { app, BrowserWindow, Menu, shell, globalShortcut } = electron;
+const { app, BrowserWindow, Menu, shell, globalShortcut, Tray } = electron;
 
 const windows = {
   mainWindow: null
 };
+
+let tray = null;
+
+const trayContextMenu = Menu.buildFromTemplate([
+  {
+    label: "Maksymalizuj/Minimalizuj",
+    click() {
+      windows.mainWindow.isMinimized() === true ? windows.mainWindow.restore() : windows.mainWindow.minimize();
+    }
+  },
+  {
+    label: "Wyjdź",
+    click() {
+      app.quit();
+    }
+  }
+]);
 
 function hardReset() {
   app.relaunch();
@@ -15,6 +32,12 @@ function hardReset() {
 
 app.on("ready", () => {
   Menu.setApplicationMenu(null);
+  tray = new Tray("Img/icon.ico");
+  tray.setToolTip("Snowy Recorder");
+  tray.setContextMenu(trayContextMenu);
+  tray.on("click", () => {
+    windows.mainWindow.isMinimized() === true ? windows.mainWindow.restore() : windows.mainWindow.minimize();
+  });
   globalShortcut.register("CommandOrControl+Q", () => {
     windows.mainWindow = null;
     app.quit();
