@@ -12,6 +12,12 @@ let tray = null;
 
 const trayContextMenu = Menu.buildFromTemplate([
   {
+    label: "Włącz/Wyłącz nagrywanie",
+    click() {
+      windows.mainWindow.webContents.send("RecordCall", true);
+    }
+  },
+  {
     label: "Maksymalizuj/Minimalizuj",
     click() {
       windows.mainWindow.isMinimized() === true ? windows.mainWindow.restore() : windows.mainWindow.minimize();
@@ -55,7 +61,8 @@ app.on("ready", () => {
     width: 250,
     height: 270,
     frame: false,
-    resizable: false
+    resizable: false,
+    skipTaskbar: true
   });
   windows.mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'Pages/mainWindow.html'),

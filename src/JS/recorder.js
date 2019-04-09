@@ -29,3 +29,7 @@ function changeRecord() {
     recordStatue = false;
   }
 }
+
+ipcRenderer.on("RecordCall", (e, res) => {
+  changeRecord();
+});

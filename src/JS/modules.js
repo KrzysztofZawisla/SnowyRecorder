@@ -4,4 +4,4 @@ const	path = require(`path`);
 const os = require("os");
 const electron = require("electron");
 
-const { remote } = electron;
+const { remote, ipcRenderer } = electron;
