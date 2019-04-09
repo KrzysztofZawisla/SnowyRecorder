@@ -66,6 +66,7 @@ app.on("ready", () => {
     windows.mainWindow.show();
   });
   windows.mainWindow.on("closed", () => {
+    windows.mainWindow = null;
     app.quit();
   });
 });
