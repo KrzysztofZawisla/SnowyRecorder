@@ -9,6 +9,7 @@ const windows = {
 };
 
 let tray = null;
+let hideStatue = false;
 
 function hardReset() {
   app.relaunch();
@@ -54,7 +55,8 @@ app.on("ready", () => {
     {
       label: "Ukryj",
       click() {
-        windows.mainWindow.isMinimized() === true ? windows.mainWindow.restore() : windows.mainWindow.minimize();
+        hideStatue === false ? windows.mainWindow.hide() : windows.mainWindow.show();
+        hideStatue === false ? hideStatue = true : hideStatue = false;
         trayContextMenuTemplate[1].label === "Ukryj" ? trayContextMenuTemplate[1].label = "Pokaż" : trayContextMenuTemplate[1].label = "Ukryj";
         trayContextMenu = Menu.buildFromTemplate(trayContextMenuTemplate);
         tray.setContextMenu(trayContextMenu);
@@ -84,7 +86,6 @@ app.on("ready", () => {
   });
   ipcMain.on("ChangeRecord", (e, res) => {
     trayContextMenuTemplate[0].label === "Włącz nagrywanie" ? trayContextMenuTemplate[0].label = "Wyłącz nagrywanie" : trayContextMenuTemplate[0].label = "Włącz nagrywanie";
-    console.log(trayContextMenuTemplate[0].label)
     trayContextMenu = Menu.buildFromTemplate(trayContextMenuTemplate);
     tray.setContextMenu(trayContextMenu);
   });
