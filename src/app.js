@@ -30,7 +30,7 @@ app.on("ready", () => {
     windows.mainWindow.reload();
   });
   windows.mainWindow = new BrowserWindow({
-    title: "SnowyMonitor - informacje o systemie",
+    title: "SnowyRecorder",
     show: false,
     width: 250,
     height: 270,
@@ -56,7 +56,7 @@ app.on("ready", () => {
       label: "Ukryj",
       click() {
         hideStatue === false ? windows.mainWindow.hide() : windows.mainWindow.show();
-        hideStatue === false ? hideStatue = true : hideStatue = false;
+        hideStatue = !hideStatue;
         trayContextMenuTemplate[1].label === "Ukryj" ? trayContextMenuTemplate[1].label = "Pokaż" : trayContextMenuTemplate[1].label = "Ukryj";
         trayContextMenu = Menu.buildFromTemplate(trayContextMenuTemplate);
         tray.setContextMenu(trayContextMenu);
